@@ -1,0 +1,12 @@
+{% extends "skytheme/base.html" %}
+{% block layout %}
+    <div class="ps-products-wrap pt-80 pb-80">
+        {% load category_tags %}
+        {% category_tree as tree_categories %}
+        <div class="ps-products" data-mh="product-listing">
+            {% include "skytheme/brands/sort.html" %}
+            {% include "skytheme/brands/main_grid.html" with tree_categories=tree_categories %}
+        </div>
+        {% include "skytheme/brands/sidebar.html" with tree_categories=tree_categories %}
+    </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% load category_tags %}
+{% category_tree as tree_categories %}
+{% if tree_categories %}
+
+    <div class="mega-menu">
+        <div class="mega-wrap">
+            <ul class="mega-item mega-features">
+                {% for tree_category in tree_categories %}
+                    <a href="{{ tree_category.url }}">
+                        {% if tree_category.pk == category.pk %}
+                            <strong>{{ tree_category.name }}</strong>
+                        {% else %}
+                            {{ tree_category.name }}
+                        {% endif %}
+                    </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endif %}

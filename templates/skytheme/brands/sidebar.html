@@ -1,0 +1,43 @@
+<div class="ps-sidebar" data-mh="product-listing">
+    <aside class="ps-widget--sidebar ps-widget--category">
+        <div class="ps-widget__header">
+            <h3>Brands</h3>
+        </div>
+        <div class="ps-widget__content">
+            <ul class="ps-list--checked">
+                <li class="current"><a href="">All</a></li>
+
+                {% if tree_categories %}
+                    {% for tree_category in tree_categories %}
+                        {% if tree_category.level == 0 %}
+                            <li><a href="">{{ tree_category.name }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                {% endif %}
+            </ul>
+        </div>
+    </aside>
+    <!--aside.ps-widget--sidebar-->
+    <!--    .ps-widget__header: h3 Ads Banner-->
+    <!--    .ps-widget__content-->
+    <!--        a(href='product-listing'): img(src="images/offer/sidebar.jpg" alt="")-->
+    <!---->
+    <!--aside.ps-widget--sidebar-->
+    <!--    .ps-widget__header: h3 Best Seller-->
+    <!--    .ps-widget__content-->
+    <!--        - for (var i = 0; i < 3; i ++)-->
+    <!--            .ps-shoe--sidebar-->
+    <!--                .ps-shoe__thumbnail-->
+    <!--                    a(href='#')-->
+    <!--                    img(src="images/shoe/sidebar/"+(i+1)+".jpg" alt="")-->
+    <!--                .ps-shoe__content-->
+    <!--                    if i == 1-->
+    <!--                        a(href='#').ps-shoe__title Nike Flight Bonafide-->
+    <!--                    else if i == 2-->
+    <!--                        a(href='#').ps-shoe__title Nike Sock Dart QS-->
+    <!--                    else-->
+    <!--                        a(href='#').ps-shoe__title Men's Sky-->
+    <!--                    p <del> £253.00</del> £152.00-->
+    <!--                    a(href='#').ps-btn PURCHASE-->
+</div>

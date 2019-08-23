@@ -1,0 +1,10 @@
+{% extends "skytheme/base.html" %}
+{% block layout %}
+    {% load category_tags %}
+    {% category_tree as tree_categories %}
+    {% include "skytheme/home/banner.html" %}
+    {% include "skytheme/home/recommanded_brands.html" %}
+    {% include "skytheme/home/home_brands_show.html" with tree_categories=tree_categories %}
+    {% include "skytheme/home/new_brands.html" with tree_categories=tree_categories %}
+    {% include "skytheme/home/contact_us.html" with tree_categories=tree_categories %}
+{% endblock %}
