@@ -1,3 +1,3 @@
 from django.shortcuts import render
 def home(request):
-    return render(request, 'skytheme/home.html')
+    return render(request, 'oscar/home.html')
