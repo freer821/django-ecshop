@@ -27,17 +27,22 @@
         <div class="side_categories">
             <ul class="nav nav-list">
                 {% for tree_category in tree_categories %}
-                    {% if tree_category.has_children and tree_category.level == 0%}
                     <li>
-                        <a href="{{ tree_category.url }}">
+                        <a {% if tree_category.level > 0 %} href="{{ tree_category.url }}" {% else %}href="#"
+                                                            onclick="displayCategories('{{ tree_category.pk }}')" {% endif %}>
                             {% if tree_category.pk == category.pk %}
                                 <strong>{{ tree_category.name }}</strong>
                             {% else %}
                                 {{ tree_category.name }}
                             {% endif %}
                         </a>
-                    </li>
-                    {% endif %}
+
+                        {% if tree_category.has_children %}
+                            <ul id="sub_tree_category_{{ tree_category.pk }}" style="display: none;">
+                            {% else %}</li>{% endif %}
+                        {% for n in tree_category.num_to_close %}
+                            </ul></li>
+                        {% endfor %}
                 {% endfor %}
             </ul>
         </div>
@@ -52,6 +57,16 @@
             {% endfor %}
         </div>
     {% endif %}
+
+    <script type="text/javascript">
+        function displayCategories(sub_tree_category_id) {
+            if ($('#sub_tree_category_' + sub_tree_category_id).css("display") == 'none') {
+                $('#sub_tree_category_' + sub_tree_category_id).css("display", "block");
+            } else {
+                $('#sub_tree_category_' + sub_tree_category_id).css("display", "none");
+            }
+        }
+    </script>
 {% endblock %}
 
 {% block content %}
@@ -59,16 +74,18 @@
     <form method="get" class="form-horizontal">
         {# Render other search params as hidden inputs #}
         {% for value in selected_facets %}
-            <input type="hidden" name="selected_facets" value="{{ value }}" />
+            <input type="hidden" name="selected_facets" value="{{ value }}"/>
         {% endfor %}
-        <input type="hidden" name="q" value="{{ search_form.q.value|default_if_none:"" }}" />
+        <input type="hidden" name="q" value="{{ search_form.q.value|default_if_none:"" }}"/>
 
         {% if paginator.count %}
             {% if paginator.num_pages > 1 %}
                 {% blocktrans with start=page_obj.start_index end=page_obj.end_index count num_results=paginator.count %}
-                    <strong>{{ num_results }}</strong> result - showing <strong>{{ start }}</strong> to <strong>{{ end }}</strong>.
+                    <strong>{{ num_results }}</strong> result - showing <strong>{{ start }}</strong> to
+                    <strong>{{ end }}</strong>.
                 {% plural %}
-                    <strong>{{ num_results }}</strong> results - showing <strong>{{ start }}</strong> to <strong>{{ end }}</strong>.
+                    <strong>{{ num_results }}</strong> results - showing <strong>{{ start }}</strong> to
+                    <strong>{{ end }}</strong>.
                 {% endblocktrans %}
             {% else %}
                 {% blocktrans count num_results=paginator.count %}
