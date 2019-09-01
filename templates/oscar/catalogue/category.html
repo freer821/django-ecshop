@@ -33,14 +33,6 @@
     </ul>
 {% endblock breadcrumbs %}
 
-{% block content %}
-    {% if category.description %}
-        <div class="row">
-            <div class="col-sm-9"><p>{{ category.description|safe }}</p></div>
-            {% if category.image %}
-                <div class="col-sm-3"><img src="{{ category.image.url }}" alt="{{ category.name }}" class="img-responsive" /></div>
-            {% endif %}
-        </div>
-    {% endif %}
-    {{ block.super }}
+{% block content_category %}
+    {% include "oscar/catalogue/partials/category_subcategories.html" %}
 {% endblock %}
