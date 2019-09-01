@@ -19,58 +19,56 @@
     </ul>
 {% endblock breadcrumbs %}
 
-{% block content_wrapper %}
-    <div class="container-fluid page">
-        <div class="hz_product_body">
-            {% category_tree as tree_categories %}
-            {% if tree_categories %}
-                <div class="row">
-                    <div class="col-md-12" styles="float:center">
-                        <div class="hz_catagory_btn_group">
-                            {% for tree_category in tree_categories %}
-                                {% if tree_category.has_children %}
-                                    <a class="btn btn-link hz_catagory_a_to_z" href="{{ tree_category.url }}"
-                                       type="button">{% if tree_category.pk == category.pk %}
-                                        <strong>{{ tree_category.name }}</strong>
-                                        {% else %}{{ tree_category.name }} {% endif %}</a>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
+{% block content %}
+    <div class="hz_product_body">
+        {% category_tree as tree_categories %}
+        {% if tree_categories %}
+            <div class="row">
+                <div class="col-md-12" styles="float:center">
+                    <div class="hz_catagory_btn_group">
+                        {% for tree_category in tree_categories %}
+                            {% if tree_category.has_children %}
+                                <a class="btn btn-link hz_catagory_a_to_z" href="{{ tree_category.url }}"
+                                   type="button">{% if tree_category.pk == category.pk %}
+                                    <strong>{{ tree_category.name }}</strong>
+                                    {% else %}{{ tree_category.name }} {% endif %}</a>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="hz_catagory_product_list">
-                            <div class="row">
-                                {% block content_category %}
-                                    {% for tree_category in tree_categories %}
-                                        {% if tree_category.level > 0 %}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="hz_catagory_product_list">
+                        <div class="row">
+                            {% block content_category %}
+                                {% for tree_category in tree_categories %}
+                                    {% if tree_category.level > 0 %}
 
-                                            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
-                                                <div class="hz_card_xs">
-                                                    <a href="#" target="_blank">
-                                                        <div>
-                                                            <h3 class="hz_card_header_xs">{{ tree_category.category.name }}</h3>
-                                                            {% if tree_category.category.image %}
-                                                                <div class="zh_card_image_xs"
-                                                                     style="background-image: url(&quot;{{ tree_category.category.image.url }}&quot;);"></div>
-                                                            {% else %}
-                                                                <div class="zh_card_image_xs"
-                                                                     style="background-image: url(&quot;static/assets/img/no-photo.png&quot;);"></div>
-                                                            {% endif %}
-                                                        </div>
-                                                    </a>
-                                                </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                                            <div class="hz_card_xs">
+                                                <a href="#" target="_blank">
+                                                    <div>
+                                                        <h3 class="hz_card_header_xs">{{ tree_category.category.name }}</h3>
+                                                        {% if tree_category.category.image %}
+                                                            <div class="zh_card_image_xs"
+                                                                 style="background-image: url(&quot;{{ tree_category.category.image.url }}&quot;);"></div>
+                                                        {% else %}
+                                                            <div class="zh_card_image_xs"
+                                                                 style="background-image: url(&quot;static/assets/img/no-photo.png&quot;);"></div>
+                                                        {% endif %}
+                                                    </div>
+                                                </a>
                                             </div>
-                                        {% endif %}
-                                    {% endfor %}
-                                {% endblock %}
-                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endblock %}
                         </div>
                     </div>
                 </div>
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
 
