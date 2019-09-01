@@ -1,22 +1,124 @@
-{% extends "oscar/layout_2_col.html" %}
+{% extends "oscar/layout.html" %}
 
 {% load basket_tags %}
 {% load category_tags %}
 {% load product_tags %}
 {% load i18n %}
-
 {% block title %}
     {% if summary %}{{ summary }} |{% endif %} {{ block.super }}
 {% endblock %}
 
 {% block headertext %}{{ summary }}{% endblock %}
 
-{% block breadcrumbs %}
-    <ul class="breadcrumb">
-        <li>
-            <a href="{{ homepage_url }}">{% trans "Home" %}</a>
-        </li>
-        <li class="active">{{ summary }}</li>
-    </ul>
-{% endblock breadcrumbs %}
+{% block content_wrapper %}
+    <div class="container-fluid page">
+        <section id="carousel">
+            <div class="carousel slide" data-ride="carousel" id="carousel-1">
+                <div class="carousel-inner" role="listbox">
+                    <div class="item">
+                        <div class="jumbotron pulse animated hero-photography carousel-hero"
+                             style="background-image: url(&quot;static/assets/img/optimizada_puerto-vallarta-airport.jpg&quot;);">
+                            <h1 class="hero-title">平台在线交易 最低仅 5% 服务费</h1>
+                            <p class="hero-subtitle">一键寻价 专业报价</p>
+                            <p><a class="btn btn-primary hero-button plat" role="button" href="#">了解更多</a></p>
+                        </div>
+                    </div>
+                    <!-- 暂时注释掉，如果有合适的轮播广告再替换-->
+                    <div class="item active">
+                        <div class="jumbotron pulse animated hero-technology carousel-hero"
+                             style="background-image: url(&quot;static/assets/img/1%20euro%20map%20.png&quot;);filter: blur(0px) brightness(100%) grayscale(0%) hue-rotate(0deg) invert(0%) saturate(93%) sepia(10%);">
+                            <h1 class="hero-title">欧洲工业品采购</h1>
+                            <p class="hero-subtitle" style="font-size: 20px;">专业的欧洲工业品跨境采购平台</p>
+                            <p><a class="btn btn-primary hero-button plat" role="button" href="#">了解更多</a></p>
+                        </div>
+                    </div>
+                </div>
+                <!--div class="control-box">
+                    <a data-slide="prev" href="#carousel-1" class="carousel-control left">‹</a>
+                    <a data-slide="next" href="#carousel-1" class="carousel-control right">›</a>
+                </div--><!-- /.control-box -->
+            </div>
+        </section>
+        <div class="row" style="margin: 0px;">
+            <div class="col" style="padding: 40px 40px 0px;">
+                <h3 class="hz_home_h3">热销爆款品牌</h3>
+                <p style="margin: 0px;">优势品牌，价格好，报价快</p>
+            </div>
+        </div>
+        {% category_tree as tree_categories %}
+        <div class="row space-rows" style="margin: 0px 20px;">
+            {% for tree_category in tree_categories %}
+                {% if tree_category.level > 0 %}
+                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3" style="padding: 0px;">
+                    <div class="card hz_card">
+                        <div class="card-body hz_card_body">
+                            <h4 class="card-title hz_card_header">{{ tree_category.category.name }}</h4>
+                            {% if tree_category.category.image %}
+                                <div class="zh_card_image"
+                                     style="background-image: url(&quot;{{ tree_category.category.image.url }}&quot;);"></div>
+                                <div>
+                            {% else %}
+                                <div class="zh_card_image"
+                                     style="background-image: url(&quot;static/assets/img/no-photo.png&quot;);"></div>
+                                <div>
+                            {% endif %}
+                            <div class="row hz_card_footer">
+                                <div class="col-5" style="padding: 0px;">
+                                    <p class="zh_card_text">服务费8%</p>
+                                </div>
+                                <div class="col-7" style="padding: 0px;">
+                                    <button class="btn btn-primary zh_card_btn" type="button">查看产品</button>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+            <div class="row" style="margin: 0px;">
+                <div class="col" style="padding: 40px 40px 0px;">
+                    <h3 class="hz_home_h3">主营品牌</h3>
+                    <p style="margin: 0px;">500个主营品牌，200个有价格表品牌当日报价<br></p>
+                </div>
+            </div>
+            <div class="row space-rows" style="margin: 0px 20px;">
+                {% for tree_category in tree_categories %}
+                    {% if tree_category.level > 0 %}
+                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3" style="padding: 0px;">
+                            <div class="card hz_card">
+                                <div class="card-body hz_card_body">
+                                    <h4 class="card-title hz_card_header">{{ tree_category.category.name }}</h4>
+                                    {% if tree_category.category.image %}
+                                        <div class="zh_card_image"
+                                             style="background-image: url(&quot;{{ tree_category.category.image.url }}&quot;);"></div>
+                                    {% else %}
+                                        <div class="zh_card_image"
+                                             style="background-image: url(&quot;static/assets/img/no-photo.png&quot;);"></div>
+                                    {% endif %}
+                                    <div class="row hz_card_footer">
+                                        <div class="col-5" style="padding: 0px;">
+                                            <p class="zh_card_text">服务费8%</p>
+                                        </div>
+                                        <div class="col-7" style="padding: 0px;">
+                                            <button class="btn btn-primary zh_card_btn" type="button">查看产品</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div><!-- /container-fluid -->
+{% endblock %}
 
+{% block onbodyload %}
+    {{ block.super }}
+    oscar.search.init();
+    $('#carousel-1').carousel({
+    interval: 2000
+    })
+{% endblock %}

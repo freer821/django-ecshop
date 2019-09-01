@@ -2,57 +2,63 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="{% block html_class %}no-js{% endblock %}">
-    <head>
-        <title>{% block title %}{{ shop_name }} - {{ shop_tagline }}{% endblock %}</title>
+<head>
+    <title>{% block title %}{{ shop_name }} - {{ shop_tagline }}{% endblock %}</title>
 
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-        <meta name="created" content="{% now "jS M Y h:i" %}" />
-        <meta name="description" content="{% block description %}{% endblock %}" />
-        <meta name="viewport" content="{% block viewport %}width=device-width{% endblock %}" />
-        <meta name="robots" content="NOARCHIVE,NOCACHE" />
-        {% block favicon %}
-            <link rel="shortcut icon" href="{% static "oscar/favicon.ico" %}" />
-        {% endblock %}
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="created" content="{% now "jS M Y h:i" %}"/>
+    <meta name="description" content="{% block description %}{% endblock %}"/>
+    <meta name="viewport" content="{% block viewport %}width=device-width{% endblock %}"/>
+    <meta name="robots" content="NOARCHIVE,NOCACHE"/>
+    {% block favicon %}
+        <link rel="shortcut icon" href="{% static "oscar/favicon.ico" %}"/>
+    {% endblock %}
 
-        {# Block where global CSS will go. #}
-        {% block styles %}{% endblock %}
+    {# Block where global CSS will go. #}
+    {% block styles %}{% endblock %}
 
-        {# Additional CSS - specific to certain pages #}
-        {% block extrastyles %}{% endblock %}
+    <link rel="stylesheet" href="/static/assets/fonts/font-awesome.min.css"> <!--安全css-->
+    <link rel="stylesheet" href="/static/assets/css/Pretty-Footer.css"> <!--安全css-->
 
-        {% block extrahead %}{% endblock %}
+    <link rel="stylesheet" href="/static/assets/css/best-carousel-slide.css"> <!--安全css 页面特殊-->
+    <link rel="stylesheet" href="/static/assets/css/hz-card.css"> <!--安全css 页面特殊-->
 
-        {% block tracking %}
-            {# Default to using Google analytics #}
-            {% include "oscar/partials/google_analytics.html" %}
-        {% endblock %}
-    </head>
+    {# Additional CSS - specific to certain pages #}
+    {% block extrastyles %}{% endblock %}
 
-    <body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}default{% endblock %}">
-        {# Main content goes in this 'layout' block #}
-        {% block layout %}{% endblock %}
+    {% block extrahead %}{% endblock %}
 
-        {# Scripts loaded from a CDN. #}
-        {% block cdn_scripts %}
-            <!-- jQuery -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-            <script>window.jQuery || document.write('<script src="{% static "oscar/js/jquery/jquery.min.js" %}"><\/script>')</script>
-        {% endblock %}
+    {% block tracking %}
+        {# Default to using Google analytics #}
+        {% include "oscar/partials/google_analytics.html" %}
+    {% endblock %}
+</head>
 
-        {# Local scripts #}
-        {% block scripts %}
-        {% endblock %}
+<body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}default{% endblock %}">
+{# Main content goes in this 'layout' block #}
+{% block layout %}{% endblock %}
 
-        {# Additional JS scripts #}
-        {% block extrascripts %}{% endblock %}
+{# Scripts loaded from a CDN. #}
+{% block cdn_scripts %}
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{% static "oscar/js/jquery/jquery.min.js" %}"><\/script>')</script>
+{% endblock %}
 
-        {# Block for body onload functions #}
-        <script>
-            $(function() {
-                {% block onbodyload %}{% endblock %}
-            });
-        </script>
+{# Local scripts #}
+{% block scripts %}
+{% endblock %}
 
-        {# Page meta-data - this is populated by the 'metadata' template context processor #}
-    </body>
+{# Additional JS scripts #}
+{% block extrascripts %}{% endblock %}
+
+{# Block for body onload functions #}
+<script>
+    $(function () {
+        {% block onbodyload %}{% endblock %}
+    });
+</script>
+
+{# Page meta-data - this is populated by the 'metadata' template context processor #}
+</body>
 </html>

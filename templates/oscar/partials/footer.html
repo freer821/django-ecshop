@@ -1,12 +1,31 @@
 {% load i18n %}
 <footer class="footer container-fluid">
-    {% block footer %}
-        {% comment %}
-            Could be used for displaying links to privacy policy, terms of service, etc.
-            We have a CSS class defined:
-                <ul class="footer_links inline">
-                    ...
-                </ul>
-         {% endcomment %}
-    {% endblock %}
+    <div class="row">
+        <div class="col-md-4 col-sm-6 footer-navigation">
+            <h3><a href="#">易<span>欧洲</span></a></h3>
+            <p class="links"><a href="#">主页</a><strong> · </strong><a href="#">品牌</a><strong> · </strong><a
+                    href="#">报价</a><strong> · </strong><a href="#">关于我们</a><strong> · </strong><a
+                    href="#">常见问题</a><strong> · </strong><a href="#">联系我们</a></p>
+            <p class="company-name">易欧洲 © 2019</p>
+        </div>
+        <div class="col-md-4 col-sm-6 footer-contacts">
+            <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                <p><span class="new-line-span">21 Revolution Street</span> Paris, France</p>
+            </div>
+            <div><i class="fa fa-phone footer-contacts-icon"></i>
+                <p class="footer-center-info email text-left"> +1 555 123456</p>
+            </div>
+            <div><i class="fa fa-envelope footer-contacts-icon"></i>
+                <p><a href="#" target="_blank">support@company.com</a></p>
+            </div>
+        </div>
+        <div class="clearfix visible-sm-block"></div>
+        <div class="col-md-4 footer-about">
+            <h4>关于我们</h4>
+            <p> 最专业的团队为您定制最经济的采购方案</p>
+            <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
+                    class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i
+                    class="fa fa-github"></i></a></div>
+        </div>
+    </div>
 </footer>
