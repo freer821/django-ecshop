@@ -1,14 +1,13 @@
-{% for tree_category in tree_categories %}
-    {% if tree_category.pk == category.pk%}
-
+{% if descendants %}
+    {% for descendant in descendants %}
         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
             <div class="hz_card_xs">
                 <a href="#" target="_blank">
                     <div>
-                        <h3 class="hz_card_header_xs">{{ tree_category.category.name }}</h3>
-                        {% if tree_category.category.image %}
+                        <h3 class="hz_card_header_xs">{{ descendant.name }}</h3>
+                        {% if descendant.image %}
                             <div class="zh_card_image_xs"
-                                 style="background-image: url(&quot;{{ tree_category.category.image.url }}&quot;);"></div>
+                                 style="background-image: url(&quot;{{ descendant.image.url }}&quot;);"></div>
                         {% else %}
                             <div class="zh_card_image_xs"
                                  style="background-image: url(&quot;static/assets/img/no-photo.png&quot;);"></div>
@@ -17,5 +16,5 @@
                 </a>
             </div>
         </div>
-    {% endif %}
-{% endfor %}
+    {% endfor %}
+{% endif %}

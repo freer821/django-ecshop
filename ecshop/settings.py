@@ -48,12 +48,10 @@ ALLOWED_HOSTS = []
 # Application definition
 INSTALLED_APPS = [
     # 3rd-party apps that oscar depends on
-    'sorl.thumbnail',
-
-    'apps.home'
+    'sorl.thumbnail'
 ] + oscar.INSTALLED_APPS
 
-INSTALLED_APPS[INSTALLED_APPS.index('oscar.apps.catalogue')] = 'apps.catalogue'
+#INSTALLED_APPS[INSTALLED_APPS.index('oscar.apps.catalogue')] = 'apps.catalogue'
 
 SITE_ID = 1
 

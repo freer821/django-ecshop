@@ -146,6 +146,32 @@ class CatalogueView(TemplateView):
         return ctx
 
 
+class SubCatalogueView(TemplateView):
+    """
+    Browse products in a given category
+    """
+    context_object_name = "products"
+    template_name = 'oscar/catalogue/subcatalogue.html'
+    enforce_paths = True
+
+    def get(self, request, *args, **kwargs):
+        # Fetch the category; return 404 or redirect as needed
+
+        try:
+            self.category = get_object_or_404(Category, pk=self.kwargs['pk'])
+
+        except InvalidPage:
+            messages.error(request, _('The given page number was invalid.'))
+            return redirect('catalogue:index')
+
+        return super().get(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = self.category
+        context['descendants'] = self.category.get_descendants()
+        return context
+
 class ProductCategoryView(TemplateView):
     """
     Browse products in a given category
@@ -189,7 +215,8 @@ class ProductCategoryView(TemplateView):
         """
         Return a list of the current category and its ancestors
         """
-        return self.category.get_descendants_and_self()
+        categories_list = self.category.get_descendants_and_self()
+        return categories_list
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -20,7 +20,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.forms import SetPasswordForm
 from oscar.core.loading import get_class
-from django.views.generic.base import RedirectView
 from django.contrib.auth import views as auth_views
 from oscar.views.decorators import login_forbidden
 from django.conf.urls import url

@@ -20,6 +20,7 @@ class CatalogueOnlyConfig(OscarConfig):
 
         self.detail_view = get_class('catalogue.views', 'ProductDetailView')
         self.catalogue_view = get_class('catalogue.views', 'CatalogueView')
+        self.sub_catalogue_view = get_class('catalogue.views', 'SubCatalogueView')
         self.category_view = get_class('catalogue.views', 'ProductCategoryView')
         self.range_view = get_class('offer.views', 'RangeDetailView')
 
@@ -30,7 +31,7 @@ class CatalogueOnlyConfig(OscarConfig):
             url(r'^(?P<product_slug>[\w-]*)_(?P<pk>\d+)/$',
                 self.detail_view.as_view(), name='detail'),
             url(r'^category/(?P<category_slug>[\w-]+(/[\w-]+)*)_(?P<pk>\d+)/$',
-                self.category_view.as_view(), name='category'),
+                self.sub_catalogue_view.as_view(), name='category'),
             url(r'^ranges/(?P<slug>[\w-]+)/$',
                 self.range_view.as_view(), name='range'),
         ]
