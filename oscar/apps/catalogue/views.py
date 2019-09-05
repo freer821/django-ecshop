@@ -146,12 +146,12 @@ class CatalogueView(TemplateView):
         return ctx
 
 
-class SubCatalogueView(TemplateView):
+class SubCatalogueAndDetailView(TemplateView):
     """
     Browse products in a given category
     """
     context_object_name = "products"
-    template_name = 'oscar/catalogue/subcatalogue.html'
+    template_name = 'oscar/catalogue/category.html'
     enforce_paths = True
 
     def get(self, request, *args, **kwargs):

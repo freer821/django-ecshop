@@ -39,9 +39,9 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="hz_catagory_product_list">
-                        <div class="row">
-                            {% block content_category %}
+                    {% block content_category %}
+                        <div class="hz_catagory_product_list">
+                            <div class="row">
                                 {% for tree_category in tree_categories %}
                                     {% if tree_category.level > 0 %}
 
@@ -63,9 +63,9 @@
                                         </div>
                                     {% endif %}
                                 {% endfor %}
-                            {% endblock %}
+                            </div>
                         </div>
-                    </div>
+                    {% endblock %}
                 </div>
             </div>
         {% endif %}
