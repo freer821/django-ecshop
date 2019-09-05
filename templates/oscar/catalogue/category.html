@@ -34,5 +34,9 @@
 {% endblock breadcrumbs %}
 
 {% block content_category %}
-    {% include "oscar/catalogue/partials/category_subcategories.html" %}
+    {% if category.depth == 1 %}
+        {% include "oscar/catalogue/partials/category_subcategories.html" %}
+    {% else %}
+        {% include "oscar/catalogue/partials/category_detail.html" %}
+    {% endif %}
 {% endblock %}
