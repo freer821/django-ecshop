@@ -24,3 +24,6 @@
         <a href="{% url 'customer:wishlists-list' %}">{% trans "Wish Lists" %}</a>
     </li>
 {% endiffeature %}
+<li{% if active_tab == 'new_product_query' %} class="active"{% endif %}>
+    <a href="{% url 'customer:new-product-query-create' %}">{% trans "New Prodcut Query" %}</a>
+</li>

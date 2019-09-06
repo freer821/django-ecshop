@@ -5,7 +5,7 @@ from django.views import generic
 
 from oscar.core.application import OscarConfig
 from oscar.core.loading import get_class
-
+from oscar.apps.customer.new_product_query.views import *
 
 class CustomerConfig(OscarConfig):
     label = 'customer'
@@ -213,6 +213,13 @@ class CustomerConfig(OscarConfig):
                 r'(?P<to_key>[a-z0-9]+)/$',
                 login_required(self.wishlists_move_product_to_another_view
                                .as_view()),
-                name='wishlists-move-product-to-another')]
+                name='wishlists-move-product-to-another'),
+
+            # new Product Query
+            url(r'new-prodcut-query/create/$',
+                login_required(new_product_query_create),
+                name='new-product-query-create')
+
+        ]
 
         return self.post_process_urls(urls)

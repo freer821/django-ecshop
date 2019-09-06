@@ -1,0 +1,133 @@
+{% extends "oscar/customer/baseaccountpage.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{{ homepage_url }}">{% trans 'Home' %}</a>
+        </li>
+        <li>
+            <a href="{% url 'customer:summary' %}">{% trans 'Account' %}</a>
+        </li>
+        <li>
+            <a href="{% url 'customer:wishlists-list' %}">{% trans 'Wish Lists' %}</a>
+        </li>
+        <li class="active">
+            {% if wishlist %}
+                {{ wishlist.name }}
+            {% else %}
+                {% trans "Create" %}
+            {% endif %}
+        </li>
+    </ul>
+{% endblock %}
+
+{% block tabcontent %}
+    <div id="content_to_change">
+        <div class="row m0" id="price_header">
+            <div class="col-md-12">
+                <div>
+                    <h1 class="txt_b_600">- 发送询价请求 -</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin: 0px 0px 0px  0px">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding-right:40px">
+                <div class="m_tb_15">
+                    <div class="row">
+                        <div class="col-md-12"><label class="hz_label_ask_preis">姓名*</label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"><input type="text" class="hz_input_ask_preis" required=""></div>
+                    </div>
+                </div>
+                <div class="m_tb_15">
+                    <div class="row">
+                        <div class="col-md-12"><label class="hz_label_ask_preis">公司*</label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"><input type="text" class="hz_input_ask_preis" required=""></div>
+                    </div>
+                </div>
+                <div class="m_tb_15">
+                    <div class="row">
+                        <div class="col-md-12"><label class="hz_label_ask_preis">联系邮箱*</label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"><input type="email" class="hz_input_ask_preis" required=""></div>
+                    </div>
+                </div>
+                <div class="m_tb_15">
+                    <div class="row">
+                        <div class="col-md-12"><label class="hz_label_ask_preis">联系电话*</label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"><input type="text" class="hz_input_ask_preis" required=""></div>
+                    </div>
+                </div>
+                <div class="m_tb_15">
+                    <div class="row">
+                        <div class="col-md-12"><label class="hz_label_ask_preis">询价产品*</label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"><textarea class="hz_input_ask_preis_product"
+                                                         placeholder="请使用回车分隔不同产品"></textarea></div>
+                    </div>
+                </div>
+                <div class="m_tb_15">
+                    <div class="row">
+                        <div class="col-md-12"><label class="hz_label_ask_preis">附言</label></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"><textarea class="hz_input_ask_preis_product"></textarea></div>
+                    </div>
+                </div>
+                <div class="m_tb_15">
+                    <div class="row">
+                        <div class="col-md-12" style="float: right">
+                            <button class="btn btn-default btn-lg txt_b_600" type="submit"
+                                    style="float: right;width: 120px;margin-top: 48px;">提交
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="hz_local_card">
+                    <header style="border-bottom: 1px solid #B9B9B9">
+                        <h2 class="txt_b_600" style="margin-bottom: 10px;">中国<span
+                                style="font-size: 18px; font-weight: 400; font-style: italic; margin-left:10px; font-color:#B9B9B9;">深圳</span>
+                        </h2>
+                    </header>
+                    <p style="font-size:16px; font-weight:200;"><i class="fa fa-map-marker hz_icon_round_grau"
+                                                                   style="margin-right: 10px;margin-top: 10px;margin-bottom: 0px;"></i><span>广州省 深圳市 新城区 星火大厦 A 座 3001室</span>
+                    </p>
+                    <p style="font-size:16px; font-weight:200;"><i class="fa fa-envelope-o hz_icon_round_grau"
+                                                                   style="margin-right: 10px;margin-top: 0px;margin-bottom: 0px;"></i><a
+                            href="#">support@europ.com</a></p>
+                    <p style="font-size:16px; font-weight:200;"><i class="fa fa-phone hz_icon_round_grau"
+                                                                   style="margin-right: 10px;margin-top: 0px;margin-bottom: 10px;"></i><span>(+86) 0321 3213 - 9546 0321</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="hz_local_card">
+                    <header style="border-bottom: 1px solid #B9B9B9">
+                        <h2 class="txt_b_600" style="margin-bottom: 10px;">捷克<span
+                                style="font-size: 18px; font-weight: 400; font-style: italic; margin-left:10px; font-color:#B9B9B9;">布拉格</span>
+                        </h2>
+                    </header>
+                    <p style="font-size:16px; font-weight:200;"><i class="fa fa-map-marker hz_icon_round_grau"
+                                                                   style="margin-right: 10px;margin-top: 10px;margin-bottom: 0px;"></i><span>Jaromírova 6, 128 00 Vinohrady</span>
+                    </p>
+                    <p style="font-size:16px; font-weight:200;"><i class="fa fa-envelope-o hz_icon_round_grau"
+                                                                   style="margin-right: 10px;margin-top: 0px;margin-bottom: 0px;"></i><a
+                            href="#">support@europ.com</a></p>
+                    <p style="font-size:16px; font-weight:200;"><i class="fa fa-phone hz_icon_round_grau"
+                                                                   style="margin-right: 10px;margin-top: 0px;margin-bottom: 10px;"></i><span>(+420) 0321 3213 - 9546 0321</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock tabcontent %}
