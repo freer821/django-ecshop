@@ -41,7 +41,7 @@ msgstr ""
 "Project-Id-Version: django-oscar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-13 15:29+0300\n"
-"PO-Revision-Date: 2019-08-29 22:50+0200\n"
+"PO-Revision-Date: 2019-09-07 13:41+0200\n"
 "Last-Translator: Macfee Joe <macfee@zuole.net>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/codeinthehole/django-oscar/language/zh_CN/)\n"
 "Language: zh_CN\n"
@@ -389,7 +389,7 @@ msgstr ""
 #: templates/oscar/dashboard/users/detail.html:32 templates/oscar/dashboard/vouchers/voucher_delete.html:37 templates/oscar/dashboard/vouchers/voucher_detail.html:32 templates/oscar/dashboard/vouchers/voucher_list.html:52
 #: templates/oscar/dashboard/vouchers/voucher_set_list.html:35
 msgid "Name"
-msgstr "姓名"
+msgstr "名字"
 
 #: apps/analytics/reports.py:62 templates/oscar/customer/profile/profile.html:25 templates/oscar/dashboard/reports/partials/user_report.html:10
 msgid "Date registered"
@@ -803,7 +803,7 @@ msgstr ""
 
 #: apps/catalogue/abstract_models.py:303 apps/catalogue/abstract_models.py:705 apps/dashboard/catalogue/tables.py:26 templates/oscar/dashboard/catalogue/product_class_delete.html:12
 msgid "Product type"
-msgstr ""
+msgstr "产品类别"
 
 #: apps/catalogue/abstract_models.py:304
 msgid "Choose what type of product this is"
@@ -811,7 +811,7 @@ msgstr ""
 
 #: apps/catalogue/abstract_models.py:308 templates/oscar/dashboard/catalogue/product_update.html:75 templates/oscar/dashboard/catalogue/product_update.html:142 templates/oscar/dashboard/catalogue/product_update.html:256
 msgid "Attributes"
-msgstr ""
+msgstr "属性"
 
 #: apps/catalogue/abstract_models.py:309
 msgid "A product attribute is something that this product may have, such as a size, as specified by its class"
@@ -827,7 +827,7 @@ msgstr ""
 
 #: apps/catalogue/abstract_models.py:321 templates/oscar/dashboard/catalogue/product_update.html:301
 msgid "Recommended products"
-msgstr ""
+msgstr "推荐产品"
 
 #: apps/catalogue/abstract_models.py:322
 msgid "These are products that are recommended to accompany the main product."
@@ -853,7 +853,7 @@ msgstr ""
 #: templates/oscar/dashboard/catalogue/product_list.html:18 templates/oscar/dashboard/catalogue/product_list.html:24 templates/oscar/dashboard/catalogue/product_update.html:10
 #: templates/oscar/dashboard/catalogue/product_update.html:19 templates/oscar/dashboard/ranges/range_product_list.html:21
 msgid "Products"
-msgstr ""
+msgstr "产品"
 
 #: apps/catalogue/abstract_models.py:417
 msgid "Your product must have a title."
@@ -905,7 +905,7 @@ msgstr ""
 
 #: apps/catalogue/abstract_models.py:679
 msgid "Recommended product"
-msgstr ""
+msgstr "推荐产品"
 
 #: apps/catalogue/abstract_models.py:681
 msgid "Ranking"
@@ -917,11 +917,11 @@ msgstr ""
 
 #: apps/catalogue/abstract_models.py:690
 msgid "Product recommendation"
-msgstr ""
+msgstr "产品推荐"
 
 #: apps/catalogue/abstract_models.py:691
 msgid "Product recomendations"
-msgstr ""
+msgstr "产品推荐"
 
 #: apps/catalogue/abstract_models.py:713 apps/customer/abstract_models.py:155
 msgid "Code can only contain the letters a-z, A-Z, digits, and underscores, and can't start with a digit."
@@ -2047,7 +2047,7 @@ msgstr ""
 
 #: apps/dashboard/catalogue/views.py:758 apps/offer/abstract_models.py:797 defaults.py:106 templates/oscar/dashboard/catalogue/product_class_list.html:23
 msgid "Product Types"
-msgstr ""
+msgstr "产品类型"
 
 #: apps/dashboard/catalogue/views.py:769
 #, python-format
@@ -4430,7 +4430,7 @@ msgstr ""
 
 #: defaults.py:136 templates/oscar/dashboard/orders/statistics.html:20
 msgid "Statistics"
-msgstr ""
+msgstr "统计"
 
 #: defaults.py:140 templates/oscar/dashboard/partners/partner_delete.html:7 templates/oscar/dashboard/partners/partner_delete.html:16 templates/oscar/dashboard/partners/partner_form.html:8
 #: templates/oscar/dashboard/partners/partner_form.html:17 templates/oscar/dashboard/partners/partner_list.html:6 templates/oscar/dashboard/partners/partner_list.html:14 templates/oscar/dashboard/partners/partner_list.html:21
@@ -4438,7 +4438,7 @@ msgstr ""
 #: templates/oscar/dashboard/partners/partner_user_form.html:17 templates/oscar/dashboard/partners/partner_user_list.html:6 templates/oscar/dashboard/partners/partner_user_list.html:15
 #: templates/oscar/dashboard/partners/partner_user_select.html:6 templates/oscar/dashboard/partners/partner_user_select.html:15
 msgid "Partners"
-msgstr ""
+msgstr "供货商"
 
 #: defaults.py:154 defaults.py:158 templates/oscar/dashboard/index.html:111 templates/oscar/dashboard/users/detail.html:15 templates/oscar/dashboard/users/index.html:9 templates/oscar/dashboard/users/index.html:14
 #: templates/oscar/dashboard/users/index.html:23
@@ -6086,7 +6086,7 @@ msgstr ""
 
 #: templates/oscar/dashboard/catalogue/product_class_list.html:16
 msgid "Product types"
-msgstr ""
+msgstr "产品类型"
 
 #: templates/oscar/dashboard/catalogue/product_class_list.html:27
 msgid "Requires shipping"
