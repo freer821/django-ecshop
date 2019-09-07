@@ -44,7 +44,7 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
 
-ALLOWED_HOSTS = ['167.179.71.172', '127.0.0.1']
+ALLOWED_HOSTS = ['167.179.71.172', '127.0.0.1', 'test2.ubonex.de']
 
 # Application definition
 INSTALLED_APPS = [
