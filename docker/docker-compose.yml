@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  ub-mariadb:
+    image: mariadb
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=qwer1234@
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+  ubonex:
+    build: .
+    image: ubonex
+    restart: always
+    container_name: ubonex
+    environment:
+      - UBONEX_ENV=test
+    ports:
+      - 8001:80
+    volumes:
+      - ./../:/home/docker/code/app
+
+  phpmysqladmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=ub-mariadb
+    ports:
+     - 8080:80
